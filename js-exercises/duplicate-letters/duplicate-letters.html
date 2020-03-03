@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+const findDupChars = function(str, casesensitive){
+
+	let charsObj = {};
+	let duplicateCharsObj = {};
+	
+	for(char of str){
+	
+		if( ! casesensitive ){
+			char = char.toLowerCase();
+		}
+	
+		if(		typeof charsObj[char] !== "undefined"	){
+			charsObj[char] = charsObj[char] + 1;
+		}else{
+			charsObj[char] = 1;
+		}
+	}
+	
+	for(char in charsObj){
+		if(charsObj[char]>1){
+			duplicateCharsObj[char] = charsObj[char];
+		}
+	}
+	
+	console.log(charsObj);
+	console.log(duplicateCharsObj);
+};
+
+findDupChars("WelcomE pesto tech", true);
+</script>
+</body>
+</html>
